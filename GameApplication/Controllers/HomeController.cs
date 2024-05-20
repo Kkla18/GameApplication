@@ -1,6 +1,6 @@
-using System.Diagnostics;
 using GameApplication.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace GameApplication.Controllers
 {

@@ -1,11 +1,11 @@
-﻿using System.Data.SqlClient;
-using GameApplication.Models;
+﻿using GameApplication.Models;
+using System.Data.SqlClient;
 
 namespace GameApplication.Services
 {
     public class SecurityDAO
     {
-        string connectionString; 
+        string connectionString;
 
         public bool FindUserByUsernameAndEmail(UserModel user)
         {
@@ -31,7 +31,7 @@ namespace GameApplication.Services
                     if (reader.HasRows)
                         success = true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 };

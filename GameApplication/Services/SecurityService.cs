@@ -8,7 +8,7 @@ namespace GameApplication.Services
 
         public SecurityService()
         {
-            knownUsers.Add(new UserModel { Id = 0, Username = "Kyara", Password = "password1" , Email = "kyara@gmail.com"});
+            knownUsers.Add(new UserModel { Id = 0, Username = "Kyara", Password = "password1", Email = "kyara@gmail.com" });
             knownUsers.Add(new UserModel { Id = 1, Username = "Dioukou", Password = "password2", Email = "Dioukou@gmail.com" });
             knownUsers.Add(new UserModel { Id = 2, Username = "Christopher", Password = "password3", Email = "Christopher@gmail.com" });
         }
