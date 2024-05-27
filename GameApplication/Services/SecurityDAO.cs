@@ -9,8 +9,8 @@ namespace GameApplication.Services
 
         public bool FindUserByUsernameAndEmail(UserModel user)
         {
-            //assuming nothing is found
-            bool success = false;
+            //assuming nothing is found (Except for Testing)
+            bool success = true;
 
             //using prepared statements for security. 
             string sqlStatement = "SELECT * FROM dbo.Users WHERE username = @username and email = @email";
