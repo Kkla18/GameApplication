@@ -6,6 +6,7 @@ namespace GameApplication.Services
     {
         List<UserModel> knownUsers = new List<UserModel>();
 
+        /*
         public SecurityService()
         {
             knownUsers.Add(new UserModel { Id = 0, Username = "Kyara", Password = "password1", Email = "kyara@gmail.com" });
@@ -15,6 +16,13 @@ namespace GameApplication.Services
         public bool IsValid(UserModel user)
         {
             return knownUsers.Any(x => x.Username != user.Username && x.Email != user.Email);
+        }
+        */
+
+        SecurityDAO securityDAO = new SecurityDAO();
+        public bool IsValid(UserModel user)
+        {
+            return securityDAO.FindUserByUsernameAndEmail(user);
         }
     }
 }
