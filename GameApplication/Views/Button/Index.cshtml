@@ -31,6 +31,7 @@
     //store image names in an array for more efficient code.
     string[] imageNames = { "BlueButton.png", "RedButton.png", "GreenButton.png" };
 }
+<p>Current Time: @DateTime.Now</p>
 <form>
     <div class="button-zone">
 
@@ -42,6 +43,7 @@
                 <div class="line-break"></div>
             }
             //show the proper image according to the buttonState property
+            <div class="oneButton" id=@i>
             <button class="game-button" type="submit" value="@Model.ElementAt(i).Id" name="buttonNumber" asp-controller="Button"
                     asp-action="HandleButtonClick">
                 <img class="game-button" src="~/img/@imageNames[Model.ElementAt(i).ButtonState]" />
@@ -51,6 +53,7 @@
                     @Model.ElementAt(i).ButtonState
                 </div>
             </button>
+            </div>
         }
     </div>
 </form>

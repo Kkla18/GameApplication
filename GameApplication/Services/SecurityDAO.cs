@@ -5,7 +5,7 @@ namespace GameApplication.Services
 {
     public class SecurityDAO
     {
-        string connectionString;
+        string connectionString = @"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GameUsers;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
         public bool FindUserByUsernameAndEmail(UserModel user)
         {

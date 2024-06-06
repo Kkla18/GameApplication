@@ -11,19 +11,6 @@ namespace GameApplication.Controllers
             return View();
         }
 
-        /*
-        public IActionResult ProcessLogin(UserModel user)
-        {
-            if (user.Username == "Testing" && user.Password == "password")
-            {
-                return View("LoginSuccess", user);
-            }
-            else
-            {
-                return View("LoginFailure", user);
-            }
-        } */
-
         public IActionResult ProcessLogin(UserModel user)
         {
             SecurityService securityService = new SecurityService();

@@ -34,5 +34,15 @@ namespace GameApplication.Controllers
             //re-display the buttons
             return View("Index", buttons);
         }
+
+        public IActionResult ShowOneButton(int buttonNumber)
+        {
+            //add one to the button state. If greater than 2, reset to 0
+            buttons.ElementAt(buttonNumber).ButtonState = (buttons.ElementAt(buttonNumber).ButtonState + 1) % 3;
+
+            //re-display the button that was clicked
+            return PartialView(buttons.ElementAt(buttonNumber));
+
+        }
     }
 }
