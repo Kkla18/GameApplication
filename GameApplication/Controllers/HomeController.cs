@@ -2,6 +2,8 @@ using GameApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
+
+//Hello this fun
 namespace GameApplication.Controllers
 {
     public class HomeController : Controller
