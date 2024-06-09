@@ -12,7 +12,7 @@ namespace GameApplication.Controllers
         {
             _logger = logger;
         }
-
+        //Chrispy
         public IActionResult Index()
         {
             return View();
