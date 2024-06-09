@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 
-//Hello this fun
 namespace GameApplication.Controllers
 {
     public class HomeController : Controller
@@ -14,7 +13,6 @@ namespace GameApplication.Controllers
         {
             _logger = logger;
         }
-        //Chrispy
         public IActionResult Index()
         {
             return View();
