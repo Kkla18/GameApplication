@@ -7,7 +7,7 @@ namespace GameApplication.Services
         SecurityDAO securityDAO = new SecurityDAO();
         public bool IsValid(UserModel user)
         {
-            return securityDAO.FindUserByUsernameAndEmail(user);
+            return securityDAO.FindsUserByNamePassword(user);
         }
     }
 }
