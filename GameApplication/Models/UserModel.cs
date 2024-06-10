@@ -12,6 +12,11 @@
         public string Username { get; set; }
         public string Password { get; set; }
 
+        // Parameterless constructor
+        public UserModel()
+        {
+        }
+
         public UserModel(int id, string firstName, string lastName, string sex, int age, string state, string email, string username, string password)
         {
             Id = id;

@@ -1,27 +1,25 @@
 ﻿using GameApplication.Models;
+using System;
 using System.Data.SqlClient;
 
 namespace GameApplication.Services
 {
     public class SecurityDAO
     {
-        string connectionString = @"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GameUsers;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GameAppDB;Integrated Security=True;Connect Timeout=30;Encrypt=False";
 
-        public bool FindUserByUsernameAndEmail(UserModel user)
+        public bool FindsUserByNamePassword(UserModel user)
         {
-            //assuming nothing is found (Except for Testing)
-            bool success = true;
+            bool success = false;
 
-            //using prepared statements for security. 
-            string sqlStatement = "SELECT * FROM dbo.Users WHERE username = @username and email = @email";
+            string sqlStatement = "SELECT * FROM dbo.Users WHERE Username = @Username AND Password = @Password";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
 
-                //values defined of the placeholders in the sqlStatement string
-                command.Parameters.Add("@USERNAME", System.Data.SqlDbType.VarChar, 40).Value = user.Username;
-                command.Parameters.Add("@EMAIL", System.Data.SqlDbType.VarChar, 99).Value = user.Email;
+                command.Parameters.AddWithValue("@Username", user.Username);
+                command.Parameters.AddWithValue("@Password", user.Password);
 
                 try
                 {
@@ -29,15 +27,19 @@ namespace GameApplication.Services
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (reader.HasRows)
+                    {
                         success = true;
+                    }
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
-                };
+                    // Log or handle the exception as needed
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
             }
+
             return success;
         }
-
     }
 }
