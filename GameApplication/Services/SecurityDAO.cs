@@ -10,6 +10,7 @@ namespace GameApplication.Services
 
         public bool FindsUserByNamePassword(UserModel user)
         {
+
             bool success = false;
 
             string sqlStatement = "SELECT * FROM dbo.Users WHERE Username = @Username AND Password = @Password";
