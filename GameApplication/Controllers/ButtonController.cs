@@ -47,8 +47,9 @@ namespace GameApplication.Controllers
 
         public IActionResult RightClickShowOneButton(int buttonNumber)
         {
-            //subtracts one to the button state. If greater than 2, reset to 0
-            buttons.ElementAt(buttonNumber).ButtonState = (buttons.ElementAt(buttonNumber).ButtonState + 5) % 3;
+            //sets button state to the flag.
+            buttons.ElementAt(buttonNumber).ButtonState = 3;
+
 
             //re-display the button that was clicked
             return PartialView("ShowOneButton", buttons.ElementAt(buttonNumber));
