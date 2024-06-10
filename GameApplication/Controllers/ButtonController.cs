@@ -44,5 +44,14 @@ namespace GameApplication.Controllers
             return PartialView(buttons.ElementAt(buttonNumber));
 
         }
+
+        public IActionResult RightClickShowOneButton(int buttonNumber)
+        {
+            //subtracts one to the button state. If greater than 2, reset to 0
+            buttons.ElementAt(buttonNumber).ButtonState = (buttons.ElementAt(buttonNumber).ButtonState + 5) % 3;
+
+            //re-display the button that was clicked
+            return PartialView("ShowOneButton", buttons.ElementAt(buttonNumber));
+        }
     }
 }
