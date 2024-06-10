@@ -2,6 +2,7 @@ using GameApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
+
 namespace GameApplication.Controllers
 {
     public class HomeController : Controller
@@ -12,7 +13,6 @@ namespace GameApplication.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             return View();
