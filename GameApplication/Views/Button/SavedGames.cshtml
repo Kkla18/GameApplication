@@ -1,22 +1,23 @@
 ﻿@model GameApplication.Models.UserModel
 
+@{
+    ViewData["Title"] = "SavedGames";
+}
+<h1>Saved Games</h1>
+<hr />
 <div>
-    <h4>Saved Games</h4>
+    <h5>Select a Saved Game</h5>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-    </dl>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>user1</td>
+        </tr>
+    </table>
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
