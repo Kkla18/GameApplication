@@ -58,12 +58,19 @@ namespace GameApplication.Controllers
 
         public IActionResult ProcessSave(UserModel user)
         {
+            
             SecurityService securityService = new SecurityService();
 
             if (securityService.IsValid(user))
-                return View("SavedGames", user);
+            {
+                user.ButtonLists.Add(buttons);
+                // int index = user.ButtonLists.IndexOf(buttons);
 
-            return View("SavedGames");
+            }
+
+
+
+            return View("DefaultSavedGames", user);
         }
     }
 }

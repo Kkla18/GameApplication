@@ -12,6 +12,8 @@
         public string Username { get; set; }
         public string Password { get; set; }
 
+        public List<List<ButtonModel>> ButtonLists { get; set; }
+
         // Parameterless constructor
         public UserModel()
         {
@@ -28,6 +30,8 @@
             Email = email;
             Username = username;
             Password = password;
+            ButtonLists = new List<List<ButtonModel>>();
+
         }
     }
 }
