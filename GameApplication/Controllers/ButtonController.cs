@@ -1,12 +1,14 @@
 ﻿using GameApplication.Models;
-using GameApplication.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameApplication.Controllers
 {
     public class ButtonController : Controller
     {
-        //List of buttons // WE ARE HERE TO TEST THIS................................
+        //list of list of buttons
+        static ButtonListModel ButtonListModel = new ButtonListModel();
+
+        //List of buttons 
         static List<ButtonModel> buttons = new List<ButtonModel>();
         Random random = new Random();
         const int GRID_SIZE = 9;
@@ -58,19 +60,18 @@ namespace GameApplication.Controllers
 
         public IActionResult ProcessSave(UserModel user)
         {
-            
+            /*
             SecurityService securityService = new SecurityService();
-
             if (securityService.IsValid(user))
             {
                 user.ButtonLists.Add(buttons);
-                // int index = user.ButtonLists.IndexOf(buttons);
-
+                int index = user.ButtonLists.IndexOf(buttons);
             }
+            */
 
+            ButtonListModel
 
-
-            return View("DefaultSavedGames", user);
+            return View("DefaultSavedGames", ButtonListModel);
         }
     }
 }
