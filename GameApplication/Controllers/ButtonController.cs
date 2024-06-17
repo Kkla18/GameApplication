@@ -56,13 +56,8 @@ namespace GameApplication.Controllers
             return PartialView("ShowOneButton", buttons.ElementAt(buttonNumber));
         }
 
-        public IActionResult ProcessSave(UserModel user)
+        public IActionResult ProcessSave()
         {
-            SecurityService securityService = new SecurityService();
-
-            if (securityService.IsValid(user))
-                return View("SavedGames", user);
-
             return View("SavedGames");
         }
     }
