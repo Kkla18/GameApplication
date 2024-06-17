@@ -1,4 +1,5 @@
 ﻿using GameApplication.Models;
+using GameApplication.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameApplication.Controllers
@@ -53,6 +54,16 @@ namespace GameApplication.Controllers
 
             //re-display the button that was clicked
             return PartialView("ShowOneButton", buttons.ElementAt(buttonNumber));
+        }
+
+        public IActionResult ProcessSave(UserModel user)
+        {
+            SecurityService securityService = new SecurityService();
+
+            if (securityService.IsValid(user))
+                return View("SavedGames", user);
+
+            return View("SavedGames");
         }
     }
 }
