@@ -6,7 +6,7 @@ namespace GameApplication.Controllers
     public class ButtonController : Controller
     {
         //List of List of Buttons
-        static List<List<ButtonModel>> ButtonList = new List<List<ButtonModel>>();   
+        static List<List<ButtonModel>> ButtonList = new List<List<ButtonModel>>();
         //List of Buttons 
         static List<ButtonModel> buttons = new List<ButtonModel>();
         Random random = new Random();
@@ -57,11 +57,25 @@ namespace GameApplication.Controllers
             return PartialView("ShowOneButton", buttons.ElementAt(buttonNumber));
         }
 
-        public IActionResult ProcessSave(UserModel user)
+        public IActionResult SaveGame()
         {
             ButtonList.Add(buttons);
 
             return View("SavedGames", ButtonList);
+        }
+
+        public IActionResult DeleteGame(int i)
+        {
+            ButtonList.RemoveAt(i);
+
+            return View("SavedGames", ButtonList);
+        }
+
+        public IActionResult LoadGame(int i)
+        {
+            buttons = ButtonList.ElementAt(i);
+
+            return View("Index", buttons);
         }
     }
 }

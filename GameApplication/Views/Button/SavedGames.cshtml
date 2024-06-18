@@ -23,6 +23,11 @@
                     {
                         <p>Button @Model.ElementAt(i).ElementAt(j).Id.ToString(): State @Model.ElementAt(i).ElementAt(j).ButtonState.ToString()</p>
                     }
+
+                    @Html.ActionLink("Delete", "DeleteGame", new { i }) |
+                    @Html.ActionLink("Load", "LoadGame", new { i })
+
+
                 </td>
             </tr>
         }
