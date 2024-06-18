@@ -57,6 +57,7 @@ namespace GameApplication.Controllers
             return PartialView("ShowOneButton", buttons.ElementAt(buttonNumber));
         }
 
+
         public IActionResult SaveGame()
         {
             ButtonList.Add(buttons);
@@ -76,6 +77,7 @@ namespace GameApplication.Controllers
             buttons = ButtonList.ElementAt(i);
 
             return View("Index", buttons);
+
         }
     }
 }
