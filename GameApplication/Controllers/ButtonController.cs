@@ -5,10 +5,9 @@ namespace GameApplication.Controllers
 {
     public class ButtonController : Controller
     {
-        //list of list of buttons
-        static ButtonListModel ButtonListModel = new ButtonListModel();
-
-        //List of buttons 
+        //List of List of Buttons
+        static List<List<ButtonModel>> ButtonList = new List<List<ButtonModel>>();   
+        //List of Buttons 
         static List<ButtonModel> buttons = new List<ButtonModel>();
         Random random = new Random();
         const int GRID_SIZE = 9;
@@ -60,18 +59,9 @@ namespace GameApplication.Controllers
 
         public IActionResult ProcessSave(UserModel user)
         {
-            /*
-            SecurityService securityService = new SecurityService();
-            if (securityService.IsValid(user))
-            {
-                user.ButtonLists.Add(buttons);
-                int index = user.ButtonLists.IndexOf(buttons);
-            }
-            */
+            ButtonList.Add(buttons);
 
-            ButtonListModel
-
-            return View("DefaultSavedGames", ButtonListModel);
+            return View("SavedGames", ButtonList);
         }
     }
 }

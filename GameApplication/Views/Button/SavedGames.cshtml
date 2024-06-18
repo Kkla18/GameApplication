@@ -1,24 +1,30 @@
-﻿@model GameApplication.Models.UserModel
+﻿@model IEnumerable<List<GameApplication.Models.ButtonModel>>
 
-<div>
-    <h4>Saved Games</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-controller="Button">Access Game</a>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    Game @i:
+
+                    @for (int j = 0; j < Model.ElementAt(i).Count(); j++)
+                    {
+                        <p>Button @Model.ElementAt(i).ElementAt(j).Id.ToString(): State @Model.ElementAt(i).ElementAt(j).ButtonState.ToString()</p>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

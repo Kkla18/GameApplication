@@ -2,12 +2,12 @@
 
 namespace GameApplication.Models
 {
-    public class ButtonListModel : IList<List<ButtonModel>>
+    public class ButtonListModel : IList<ButtonModel>
     {
-        public List<ButtonModel> Items { get; set; } = new List<ButtonModel>();
+        public ButtonModel Items { get; set; } = new ButtonModel();
         public ButtonListModel() { }
 
-        public ButtonListModel(List<ButtonModel> items)
+        public ButtonListModel(ButtonModel items)
         {
             Items = items;
         }
@@ -16,51 +16,51 @@ namespace GameApplication.Models
 
         public bool IsReadOnly => ((ICollection<ButtonListModel>)Items).IsReadOnly;
 
-        public List<ButtonModel> this[int index] { get => ((IList<List<ButtonModel>>)Items)[index]; set => ((IList<List<ButtonModel>>)Items)[index] = value; }
+        public ButtonModel this[int index] { get => ((IList<ButtonModel>)Items)[index]; set => ((IList<ButtonModel>)Items)[index] = value; }
 
-        public int IndexOf(List<ButtonModel> item)
+        public int IndexOf(ButtonModel item)
         {
-            return ((IList<List<ButtonModel>>)Items).IndexOf(item);
+            return ((IList<ButtonModel>)Items).IndexOf(item);
         }
 
-        public void Insert(int index, List<ButtonModel> item)
+        public void Insert(int index, ButtonModel item)
         {
-            ((IList<List<ButtonModel>>)Items).Insert(index, item);
+            ((IList<ButtonModel>)Items).Insert(index, item);
         }
 
         public void RemoveAt(int index)
         {
-            ((IList<List<ButtonModel>>)Items).RemoveAt(index);
+            ((IList<ButtonModel>)Items).RemoveAt(index);
         }
 
-        public void Add(List<ButtonModel> item)
+        public void Add(ButtonModel item)
         {
-            ((ICollection<List<ButtonModel>>)Items).Add(item);
+            ((ICollection<ButtonModel>)Items).Add(item);
         }
 
         public void Clear()
         {
-            ((ICollection<List<ButtonModel>>)Items).Clear();
+            ((ICollection<ButtonModel>)Items).Clear();
         }
 
-        public bool Contains(List<ButtonModel> item)
+        public bool Contains(ButtonModel item)
         {
-            return ((ICollection<List<ButtonModel>>)Items).Contains(item);
+            return ((ICollection<ButtonModel>)Items).Contains(item);
         }
 
-        public void CopyTo(List<ButtonModel>[] array, int arrayIndex)
+        public void CopyTo(ButtonModel[] array, int arrayIndex)
         {
-            ((ICollection<List<ButtonModel>>)Items).CopyTo(array, arrayIndex);
+            ((ICollection<ButtonModel>)Items).CopyTo(array, arrayIndex);
         }
 
-        public bool Remove(List<ButtonModel> item)
+        public bool Remove(ButtonModel item)
         {
-            return ((ICollection<List<ButtonModel>>)Items).Remove(item);
+            return ((ICollection<ButtonModel>)Items).Remove(item);
         }
 
-        public IEnumerator<List<ButtonModel>> GetEnumerator()
+        public IEnumerator<ButtonModel> GetEnumerator()
         {
-            return ((IEnumerable<List<ButtonModel>>)Items).GetEnumerator();
+            return ((IEnumerable<ButtonModel>)Items).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
