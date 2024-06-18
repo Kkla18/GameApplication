@@ -12,6 +12,7 @@
         public string Username { get; set; }
         public string Password { get; set; }
 
+
         // Parameterless constructor
         public UserModel()
         {
@@ -28,6 +29,7 @@
             Email = email;
             Username = username;
             Password = password;
+
         }
     }
 }
