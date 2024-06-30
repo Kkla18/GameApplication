@@ -29,8 +29,8 @@ namespace GameApplication.Controllers
             //sending the button list to the view
             return View("Index", buttons);
         }
-
-        public ActionResult HandleButtonClick(string buttonNumber)
+        [HttpPut("HandleButtonClick")]
+        public ActionResult <ButtonModel> HandleButtonClick(string buttonNumber)
         {
             //converting from string to int
             int bN = int.Parse(buttonNumber);
@@ -42,7 +42,7 @@ namespace GameApplication.Controllers
             return View("Index", buttons);
         }
 
-        [HttpPut("showonebutton")]
+        [HttpPut("ShowOneButton")]
         public ActionResult <ButtonModel> ShowOneButton(int buttonNumber)
         {
             //add one to the button state. If greater than 2, reset to 0
@@ -54,7 +54,7 @@ namespace GameApplication.Controllers
         }
 
         [HttpPut("rightclickshowonebutton")]
-        public ActionResult <IEnumerable<ButtonModel>> RightClickShowOneButton(int buttonNumber)
+        public ActionResult <ButtonModel> RightClickShowOneButton(int buttonNumber)
         {
             //sets button state to the flag.
             buttons.ElementAt(buttonNumber).ButtonState = 3;
@@ -64,22 +64,24 @@ namespace GameApplication.Controllers
             return PartialView("ShowOneButton", buttons.ElementAt(buttonNumber));
         }
 
-
-        public IActionResult SaveGame()
+        [HttpPut("SaveGame")]
+        public ActionResult <ButtonModel> SaveGame()
         {
             ButtonList.Add(buttons);
 
             return View("SavedGames", ButtonList);
         }
 
-        public IActionResult DeleteGame(int i)
+        [HttpPut("DeleteGame")]
+        public ActionResult <ButtonModel> DeleteGame(int i)
         {
             ButtonList.RemoveAt(i);
 
             return View("SavedGames", ButtonList);
         }
 
-        public IActionResult LoadGame(int i)
+        [HttpPut("LoadGame")]
+        public ActionResult <ButtonModel> LoadGame(int i)
         {
             buttons = ButtonList.ElementAt(i);
 
