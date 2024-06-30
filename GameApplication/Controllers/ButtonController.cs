@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GameApplication.Controllers
 {
-    public class ButtonController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ButtonAPIController : ControllerBase
     {
         //List of List of Buttons
         static List<List<ButtonModel>> ButtonList = new List<List<ButtonModel>>();
@@ -11,7 +13,9 @@ namespace GameApplication.Controllers
         static List<ButtonModel> buttons = new List<ButtonModel>();
         Random random = new Random();
         const int GRID_SIZE = 9;
-        public IActionResult Index()
+
+        [HttpGet]
+        public ActionResult <IEnumerable<ButtonModel>> Index()
         {
             //New list when page loads
             buttons = new List<ButtonModel>();
@@ -25,7 +29,8 @@ namespace GameApplication.Controllers
             //sending the button list to the view
             return View("Index", buttons);
         }
-        public IActionResult HandleButtonClick(string buttonNumber)
+
+        public ActionResult HandleButtonClick(string buttonNumber)
         {
             //converting from string to int
             int bN = int.Parse(buttonNumber);
@@ -37,7 +42,8 @@ namespace GameApplication.Controllers
             return View("Index", buttons);
         }
 
-        public IActionResult ShowOneButton(int buttonNumber)
+        [HttpPut("showonebutton")]
+        public ActionResult <ButtonModel> ShowOneButton(int buttonNumber)
         {
             //add one to the button state. If greater than 2, reset to 0
             buttons.ElementAt(buttonNumber).ButtonState = (buttons.ElementAt(buttonNumber).ButtonState + 1) % 3;
@@ -47,7 +53,8 @@ namespace GameApplication.Controllers
 
         }
 
-        public IActionResult RightClickShowOneButton(int buttonNumber)
+        [HttpPut("rightclickshowonebutton")]
+        public ActionResult <IEnumerable<ButtonModel>> RightClickShowOneButton(int buttonNumber)
         {
             //sets button state to the flag.
             buttons.ElementAt(buttonNumber).ButtonState = 3;
